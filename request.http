@@ -1,0 +1,64 @@
+POST  http://127.0.0.1:8000/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name" : "Song Doan",
+    "email":"admin@gmail.com",
+    "password":"admin",
+    "password_confirmation":"admin"
+}
+
+### 
+POST  http://127.0.0.1:8000/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"admin"
+}
+
+###
+POST  http://127.0.0.1:8000/api/auth/logout
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5Njg2OSwiZXhwIjoxNjQ5MDAwNDY5LCJuYmYiOjE2NDg5OTY4NjksImp0aSI6Im5QSDViMzJjYXUyNGxHcEIiLCJzdWIiOjYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DV5XB6kP4sgLSSI1Cf5Fn1PAk2iAA9LZDSA48Ss-Sr0
+
+###
+POST http://127.0.0.1:8000/api/auth/me
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5NjkxMywiZXhwIjoxNjQ5MDAwNTEzLCJuYmYiOjE2NDg5OTY5MTMsImp0aSI6Imd1OXZIeUliamxKZEdlVTAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.r-Yy9OY1E6k2GowOipZJ3pCaWUXDgz-H30FsyaLu3eQ
+
+###
+POST http://127.0.0.1:8000/api/auth/refresh 
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5NjkxMywiZXhwIjoxNjQ5MDAwNTEzLCJuYmYiOjE2NDg5OTY5MTMsImp0aSI6Imd1OXZIeUliamxKZEdlVTAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.r-Yy9OY1E6k2GowOipZJ3pCaWUXDgz-H30FsyaLu3eQ
+
+
+###
+GET http://127.0.0.1:8000/api/product
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5NjkxMywiZXhwIjoxNjQ5MDAwNTEzLCJuYmYiOjE2NDg5OTY5MTMsImp0aSI6Imd1OXZIeUliamxKZEdlVTAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.r-Yy9OY1E6k2GowOipZJ3pCaWUXDgz-H30FsyaLu3eQ
+
+###
+POST  http://127.0.0.1:8000/api/product
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5NjkxMywiZXhwIjoxNjQ5MDAwNTEzLCJuYmYiOjE2NDg5OTY5MTMsImp0aSI6Imd1OXZIeUliamxKZEdlVTAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.r-Yy9OY1E6k2GowOipZJ3pCaWUXDgz-H30FsyaLu3eQ
+
+
+{
+    "name":"Quét nhà",
+    "price":12,
+    "image":"d"
+}
+
+###
+GET http://127.0.0.1:8000/api/post/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0ODk5NjQ4MywiZXhwIjoxNjQ5MDAwMDgzLCJuYmYiOjE2NDg5OTY0ODMsImp0aSI6Ik1mTnRXdEZOZVFLN1ZtWnIiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.tXkCOhNDK4eIpcvQFKlmqQqwODgZkbC0jH0R1kK2jcs
