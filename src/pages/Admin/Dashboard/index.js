@@ -17,12 +17,12 @@ function AdminDashboard() {
   }, [user]);
 
   return (
-    <Container className="mt-3">
+    <Container fluid className="mt-3">
       <Row>
-        <Col xs={12} lg={4}>
+        <Col xs={12} md={4}>
           <Upload />
         </Col>
-        <Col xs={12} lg={8}>
+        <Col xs={12} md={8}>
           <List />
         </Col>
       </Row>

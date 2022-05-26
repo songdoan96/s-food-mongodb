@@ -13,58 +13,51 @@ const Filter = ({ handleFilter }) => {
   ];
 
   return (
-    <Card className="shadow-sm ">
-      <Card.Header>
-        <h5>Sắp xếp</h5>
-      </Card.Header>
-      <Card.Body>
-        <div className="">
-          {radios.map((radio) => (
-            <div className="d-flex align-items-center py-3" key={radio.id}>
-              <input
-                name="filter"
-                type="radio"
-                value={radio.sort}
-                id={radio.sort}
-                checked={radioValue === radio.id}
-                onChange={(e) => {
-                  setRadioValue(radio.id);
-                  handleFilter(radio.sort);
-                }}
-                className="me-2 "
-              />
-              {/* text-success border-bottom border-success */}
-              <label
-                htmlFor={radio.sort}
-                className={`${
-                  radioValue === radio.id ? "h6 pb-2 text-primary border-bottom border-primary" : ""
-                }`}
-              >
-                {radio.name}
-              </label>
-            </div>
-
-            // <ToggleButton
-            //   name="filter"
-            //   key={radio.id}
-            //   id={radio.id}
-            //   type="radio"
-            //   value={radio.sort}
-            //   variant={
-            //     radioValue === radio.id ? "outline-success" : "outline-primary"
-            //   }
-            //   checked={radioValue === radio.id}
-            //   onChange={(e) => {
-            //     setRadioValue(radio.id);
-            //     handleFilter(radio.sort);
-            //   }}
-            // >
-            //   {radio.name}
-            // </ToggleButton>
-          ))}
+    <div className="px-3 border shadow-sm">
+      <p className="h5 text-center text-uppercase py-3 border-bottom">Sắp xếp</p>
+      {radios.map((radio) => (
+        <div className="d-flex align-items-center py-3" key={radio.id}>
+          <input
+            name="filter"
+            type="radio"
+            value={radio.sort}
+            id={radio.sort}
+            checked={radioValue === radio.id}
+            onChange={(e) => {
+              setRadioValue(radio.id);
+              handleFilter(radio.sort);
+            }}
+            className="me-2 "
+          />
+          <label
+            htmlFor={radio.sort}
+            className={`${
+              radioValue === radio.id ? "h6 pb-2 text-primary border-bottom border-primary" : ""
+            }`}
+          >
+            {radio.name}
+          </label>
         </div>
-      </Card.Body>
-    </Card>
+
+        // <ToggleButton
+        //   name="filter"
+        //   key={radio.id}
+        //   id={radio.id}
+        //   type="radio"
+        //   value={radio.sort}
+        //   variant={
+        //     radioValue === radio.id ? "outline-success" : "outline-primary"
+        //   }
+        //   checked={radioValue === radio.id}
+        //   onChange={(e) => {
+        //     setRadioValue(radio.id);
+        //     handleFilter(radio.sort);
+        //   }}
+        // >
+        //   {radio.name}
+        // </ToggleButton>
+      ))}
+    </div>
   );
 };
 
