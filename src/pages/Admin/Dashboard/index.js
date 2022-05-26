@@ -17,7 +17,7 @@ function AdminDashboard() {
   }, [user]);
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-3">
       <Row>
         <Col xs={12} lg={4}>
           <Upload />

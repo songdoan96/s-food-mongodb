@@ -15,7 +15,7 @@ function Header() {
     logoutUser(token, dispatch, navigate);
   };
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Container>
         <Navbar.Brand to="/" as={Link}>
           <span className="fs-2">S.</span>

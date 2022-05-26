@@ -47,7 +47,7 @@ function Home() {
   if (status === "success") {
     child = productsSorted.map((product, index) => (
       <Col sm={6} lg={3} className="mb-4" key={product._id}>
-        <Card className="shadow ">
+        <Card className="cart-shadow">
           <Card.Header className="bg-white">
             <Card.Img
               variant="top"
@@ -56,23 +56,25 @@ function Home() {
             />
           </Card.Header>
           <Card.Body>
-            <h5 className="">{product.name}</h5>
-            <h6>$ {product.price}</h6>
-            {cart.some((p) => p._id === product._id) ? (
-              <button
-                className="border-0 outline-0 text-danger fs-2 bg-transparent"
-                onClick={handleRemoveFromCart.bind(this, product._id)}
-              >
-                <BsFillCartXFill />
-              </button>
-            ) : (
-              <button
-                className="border-0 outline-0 text-primary fs-2 bg-transparent"
-                onClick={handleAddToCart.bind(this, product)}
-              >
-                <BsFillCartPlusFill />
-              </button>
-            )}
+            <h5>{product.name}</h5>
+            <div className="d-flex justify-content-between align-items-center">
+              <h6>$ {product.price}</h6>
+              {cart.some((p) => p._id === product._id) ? (
+                <button
+                  className="border-0 outline-0 text-danger fs-2 bg-transparent"
+                  onClick={handleRemoveFromCart.bind(this, product._id)}
+                >
+                  <BsFillCartXFill />
+                </button>
+              ) : (
+                <button
+                  className="border-0 outline-0 text-primary fs-2 bg-transparent"
+                  onClick={handleAddToCart.bind(this, product)}
+                >
+                  <BsFillCartPlusFill />
+                </button>
+              )}
+            </div>
           </Card.Body>
         </Card>
       </Col>
