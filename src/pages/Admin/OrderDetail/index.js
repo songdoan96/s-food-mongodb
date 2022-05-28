@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container, Spinner, Table } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { setToast } from "../../../store/toastSlice";
 function OrderDetail() {
+  const user = useSelector((state) => state.auth.login.currentUser);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -13,6 +15,12 @@ function OrderDetail() {
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
   const [error, setError] = useState(false);
+  useEffect(() => {
+    if (!user || user.role !== "admin") {
+      dispatch(setToast({ message: "Bạn không có quyền truy cập.", type: "warning" }));
+      navigate("/");
+    }
+  }, [user]);
   useEffect(() => {
     const getOrder = async () => {
       try {
@@ -27,9 +35,10 @@ function OrderDetail() {
 
     getOrder();
   }, [id, checkout._id]);
+
   useEffect(() => {
     setTotal(
-      order.reduce((prev, current) => prev + Number(current.product.price) * current.qty, 0)
+      order.reduce((prev, current) => prev + Number(current.product?.price) * current.qty, 0)
     );
   }, [order]);
 
@@ -119,16 +128,16 @@ function OrderDetail() {
                     <tr key={orderItem._id}>
                       <td className="cart_product">
                         <img
-                          src={`https://res.cloudinary.com/song-doan/image/upload/c_fill,h_50,w_50/v1649473695/${orderItem.product.image}`}
+                          src={`https://res.cloudinary.com/song-doan/image/upload/c_fill,h_50,w_50/v1649473695/${orderItem?.product.image}`}
                           alt="Samsung Galaxy Z Fold2 5G"
                           width="50"
                         />
                       </td>
                       <td className="cart_description">
-                        <h6>{orderItem.product.name}</h6>
+                        <h6>{orderItem?.product.name}</h6>
                       </td>
                       <td className="cart_price">
-                        <p>$ {orderItem.product.price}</p>
+                        <p>$ {orderItem.product?.price}</p>
                       </td>
                       <td className="cart_quantity">
                         <div className="cart_quantity_button">
@@ -137,7 +146,7 @@ function OrderDetail() {
                       </td>
                       <td className="cart_total">
                         <p className="cart_total_price">
-                          $ {orderItem.product.price * orderItem.qty}
+                          $ {orderItem.product?.price * orderItem.qty}
                         </p>
                       </td>
                     </tr>

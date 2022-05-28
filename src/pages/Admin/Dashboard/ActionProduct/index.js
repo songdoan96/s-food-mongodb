@@ -19,7 +19,7 @@ function ActionProduct({ id }) {
 
   useEffect(() => {
     setUpdatedProduct(products.find((product) => product._id === id));
-  }, [id]);
+  }, [id, products]);
   const handleImage = (e) => {
     const file = e.target.files[0];
     setPicture({ image: file });
@@ -71,6 +71,7 @@ function ActionProduct({ id }) {
       <button className="btn mx-1 btn-outline-danger" onClick={() => setShowModalDelete(true)}>
         <BsTrash />
       </button>
+
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Chỉnh sửa sản phẩm</Modal.Title>
@@ -127,6 +128,7 @@ function ActionProduct({ id }) {
           </Modal.Footer>
         </Form>
       </Modal>
+
       <Modal show={showModalDelete} onHide={() => setShowModalDelete(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Xóa ?</Modal.Title>

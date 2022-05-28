@@ -31,7 +31,6 @@ const Order = () => {
 
     user && getOrder();
   }, [user]);
-
   if (loading) {
     return (
       <Container
@@ -43,7 +42,7 @@ const Order = () => {
         <Spinner animation="border" />
       </Container>
     );
-  } else if (errors || !orders) {
+  } else if (errors || !orders.length) {
     return (
       <Container
         className="mx mt-5 d-flex flex-column justify-content-center align-items-center"

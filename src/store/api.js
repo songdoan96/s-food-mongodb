@@ -15,11 +15,7 @@ import { setToast } from "./toastSlice";
 import { clearCart } from "./cartSlice";
 import { addLoading, addSuccess, addFail } from "./productSlice";
 import { checkoutStart, checkoutSuccess, checkoutFail } from "./checkoutSlice";
-import {
-  userOrderFail,
-  userOrderStart,
-  userOrderSuccess,
-} from "./userOrderSlice";
+import { userOrderFail, userOrderStart, userOrderSuccess } from "./userOrderSlice";
 // Auth
 async function loginUser(loginForm, dispatch, navigate) {
   dispatch(loginStart());
@@ -57,11 +53,9 @@ async function logoutUser(token, dispatch, navigate) {
         },
       }
     );
-    if (response.data.status === 200) {
-      dispatch(logoutSuccess());
-      dispatch(setToast({ message: "Đăng xuất thành công." }));
-      navigate("/");
-    }
+    dispatch(logoutSuccess());
+    dispatch(setToast({ message: "Đăng xuất thành công." }));
+    navigate(0);
   } catch (error) {
     dispatch(logoutFail({ message: "Lỗi đăng xuất." }));
     dispatch(setToast({ message: "Lỗi đăng xuất.", type: "danger" }));
